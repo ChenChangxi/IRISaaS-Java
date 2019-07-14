@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.entitymapper.CopyrightMapper">
+
+    <resultMap id="result" type="table.entity.Copyright">
+        <result column="Cno" property="no"/>
+        <result column="Cname" property="name"/>
+        <result column="Cmajor" property="major"/>
+        <result column="Ctype" property="type"/>
+        <result column="Ctime" property="time"/>
+        <result column="Cquote" property="quote"/>
+    </resultMap>
+
+    <select id="select" parameterType="Map" resultMap="result">
+        select * from Copyright
+        <where>
+            <if test="Cno_t!='' and Cno_t!=null">and Cno=#{Cno_t}</if>
+            <if test="Cname_t!='' and Cname_t!=null">and Cname=#{Cname_t}</if>
+            <if test="Cmajor_t!='' and Cmajor_t!=null">and Cmajor=#{Cmajor_t}</if>
+            <if test="Ctype_t!='' and Ctype_t!=null">and Ctype=#{Ctype_t}</if>
+            <if test="Ctime_t!='' and Ctime_t!=null">and Ctime=#{Ctime_t}</if>
+            <if test="Cquote_t!='' and Cquote_t!=null">and Cquote=#{Cquote_t}</if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="Map">
+        update Copyright
+        <trim prefix="set" suffixOverrides=",">
+            <if test="Cname!=''">Cname=#{Cname},</if>
+            <if test="Cmajor!=''">Cmajor=#{Cmajor},</if>
+            <if test="Ctype!=''">Ctype=#{Ctype},</if>
+            <if test="Ctime!=''">Ctime=#{Ctime},</if>
+            <if test="Cquote!=''">Cquote=#{Cquote},</if>
+        </trim>
+        where Cno=#{Cno}
+    </update>
+
+    <delete id="delete" parameterType="String">
+    delete from Copyright where Cno=#{no}
+    </delete>
+
+    <insert id="insert" parameterType="Map">
+        insert into Copyright(Cno,Cname,Cmajor,Ctype,Ctime,Cquote)
+        values(#{Cno_t},#{Cname_t},#{Cmajor_t},#{Ctype_t},#{Ctime_t},#{Cquote_t})
+    </insert>
+</mapper>

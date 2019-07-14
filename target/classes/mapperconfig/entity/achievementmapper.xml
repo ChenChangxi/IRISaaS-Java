@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.entitymapper.AchievementMapper" >
+
+    <resultMap id="result" type="table.entity.Achievement">
+        <id column="Ano" property="no"/>
+        <result column="Aname" property="name"/>
+        <result column="Aidentify" property="identify"/>
+        <result column="Aaward" property="award"/>
+        <result column="Atransform" property="transform"/>
+        <result column="Apatent" property="patent"/>
+    </resultMap>
+
+    <select id="select" parameterType="Map" resultMap="result">
+
+        select * from Achievement
+        <where>
+            <if test="Ano_t!='' and Ano_t!=null">and Ano=#{Ano_t}</if>
+            <if test="Aname_t!='' and Aname_t!=null">and Aname=#{Aname_t}</if>
+            <if test="Aidentify_t!='' and Aidentify_t!=null">and Aidentify=#{Aidentify_t}</if>
+            <if test="Aaward_t!='' and Aaward_t!=null">and Aaward=#{Aaward_t}</if>
+            <if test="Atransform_t!='' and Atransform_t!=null">and Atransform=#{Atransform_t}</if>
+            <if test="Apatent_t!='' and Apatent_t!=null">and Apatent=#{Apatent_t}</if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="Map">
+        update Achievement
+        <trim prefix="set" suffixOverrides=",">
+            <if test="Aname!=''">Aname=#{Aname},</if>
+            <if test="Aidentify!=''">Aidentify=#{Aidentify},</if>
+            <if test="Aaward!=''">Aaward=#{Aaward},</if>
+            <if test="Atransform!=''">Atransform=#{Atransform},</if>
+            <if test="Apatent!=''">Apatent=#{Apatent},</if>
+        </trim>
+        where Ano=#{Ano}
+    </update>
+
+    <delete id="delete" parameterType="String">
+    delete from Achievement where Ano=#{no}
+    </delete>
+
+    <insert id="insert" parameterType="Map">
+    insert into Achievement(Ano,Aname,Aidentify,Aaward,Atransform,Apatent)
+    values(#{Ano_t},#{Aname_t},#{Aidentify_t},#{Aaward_t},#{Atransform_t},#{Apatent_t})
+    </insert>
+</mapper>

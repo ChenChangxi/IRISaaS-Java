@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.connectmapper.APAMapper" >
+
+    <insert id="insert" parameterType="Map">
+        insert into A_PA(P_Ano,Ano) values(#{P_Ano},#{Ano})
+    </insert>
+
+    <delete id="delete" parameterType="Map">
+        delete from A_PA where Ano=#{Ano} and P_Ano=#{P_Ano}
+    </delete>
+
+    <select id="selectPano" parameterType="String" resultType="String">
+         select P_Ano from A_PA where Ano=#{ano}
+    </select>
+
+    <select id="selectAno" parameterType="String" resultType="String">
+         select Ano from A_PA where P_Ano=#{pano}
+    </select>
+</mapper>

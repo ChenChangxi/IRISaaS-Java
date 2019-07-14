@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function Select() {
+
+            document.getElementById("request").value="select";
+            document.Aform.action="/achievement";
+            document.Aform.submit();
+        }
+        function Insert() {
+
+            document.getElementById("request").value="insert";
+            document.Aform.action="/achievement";
+            document.Aform.submit();
+        }
+    </script>
+</head>
+<body background="../../imags/China.jpg">
+<div style="height: 50px"></div>
+<div align="center">
+<form method="post" name="Aform">
+    <table border="1" bordercolor="gold" bgcolor="#fff0f5" width="500"
+           style="font-size:12px;align:left;" cellpadding="4">
+        <tr>
+            <td height="60" colspan="6"><br>
+                <span style="color:green;font-size:20px">
+                    <b><center>您现在在科技成果管理页面</center></b>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" height="400" >
+                <div style="height: 70px;font-size: 17px;color: darkred">请输入您想要查询/插入的内容：</div>
+                <table align="center" border="1" bgcolor="#fff0f5" bordercolor="gold" width="400">
+                    <tr>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;成果号：&nbsp;<input type="text" size="10" name="Ano_t" id="Ano_t">
+                        </td>
+
+                        <td width="150" colspan="1" align="center" height="50">
+                            &nbsp;成果名：&nbsp;<input type="text" size="10" name="Aname_t" id="Aname_t">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;鉴定信息：&nbsp;<input type="text" size="10" name="Aidentify_t" id="Aidentify_t">
+                        </td>
+
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;获奖信息：&nbsp;<input type="text" size="10" name="Aaward_t" id="Aaward_t">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;转让信息：&nbsp;<input type="text" size="10" name="Atransform_t" id="Atransform_t">
+                        </td>
+
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;申请专利：&nbsp;<input type="text" size="10" name="Apatent_t" id="Apatent_t">
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="height: 50px"></div>
+                <div style="height: auto">
+                    <input type="submit" value="查询" name="achievement_select" onclick="Select()">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="插入" name="Achievement_insert" onclick="Insert()">
+
+                    <input type="hidden" name="request" id="request">
+                </div>
+            </td>
+        </tr>
+    </table><br>
+</form>
+</div>
+</body>
+</html>
+

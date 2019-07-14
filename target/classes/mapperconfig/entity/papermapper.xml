@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.entitymapper.PaperMapper" >
+
+    <resultMap id="result" type="table.entity.Paper">
+        <result column="P_Ano" property="no"/>
+        <result column="P_Aname" property="name"/>
+        <result column="P_Amajor" property="major"/>
+        <result column="P_Apublic" property="ppublic"/>
+        <result column="P_Atime" property="time"/>
+        <result column="P_Aquote" property="quote"/>
+    </resultMap>
+
+    <select id="select" parameterType="Map" resultMap="result">
+        select * from Paper
+        <where>
+            <if test="P_Ano_t!='' and P_Ano_t!=null">and P_Ano=#{P_Ano_t}</if>
+            <if test="P_Aname_t!='' and P_Aname_t!=null">and P_Aname=#{P_Aname_t}</if>
+            <if test="P_Amajor_t!='' and P_Amajor_t!=null">and P_Amajor=#{P_Amajor_t}</if>
+            <if test="P_Apublic_t!='' and P_Apublic_t!=null">and P_Apublic=#{P_Apublic_t}</if>
+            <if test="P_Atime_t!='' and P_Atime_t!=null">and P_Atime=#{P_Atime_t}</if>
+            <if test="P_Aquote_t!='' and P_Aquote_t!=null">and P_Aquote=#{P_Aquote_t}</if>
+        </where>
+    </select>
+
+    <update id="update" parameterType="Map">
+        update Paper
+        <trim prefix="set" suffixOverrides=",">
+            <if test="P_Aname!=''">P_Aname=#{P_Aname},</if>
+            <if test="P_Amajor!=''">P_Amajor=#{P_Amajor},</if>
+            <if test="P_Apublic!=''">P_Apublic=#{P_Apublic},</if>
+            <if test="P_Aquote!=''">P_Aquote=#{P_Aquote},</if>
+            <if test="P_Atime!=''">P_Atime=#{P_Atime},</if>
+        </trim>
+        where P_Ano=#{P_Ano}
+    </update>
+
+    <delete id="delete" parameterType="String">
+    delete from Paper where P_Ano=#{no}
+    </delete>
+
+    <insert id="insert" parameterType="Map">
+        insert into Paper(P_Ano,P_Aname,P_Amajor,P_Apublic,P_Atime,P_Aquote)
+        values(#{P_Ano_t},#{P_Aname_t},#{P_Amajor_t},#{P_Apublic_t},#{P_Atime_t},#{P_Aquote_t})
+    </insert>
+</mapper>

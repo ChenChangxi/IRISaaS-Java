@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.connectmapper.SPMapper" >
+
+    <insert id="insert" parameterType="Map">
+        insert into S_P(Sno,Pno) values(#{Sno},#{Pno})
+    </insert>
+
+    <delete id="delete" parameterType="Map">
+        delete from S_P where Sno=#{Sno} and Pno=#{Pno}
+    </delete>
+
+    <select id="selectPno" parameterType="String" resultType="String">
+         select Pno from S_P where Sno=#{sno}
+    </select>
+
+    <select id="selectSno" parameterType="String" resultType="String">
+         select Sno from S_P where Pno=#{pno}
+    </select>
+
+</mapper>
