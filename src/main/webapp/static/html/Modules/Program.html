@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function Select() {
+
+            document.getElementById("request").value="select";
+            document.Pform.action="/program";
+            document.Pform.submit();
+        }
+        function Insert() {
+
+            document.getElementById("request").value="insert";
+            document.Pform.action="/program";
+            document.Pform.submit();
+        }
+    </script>
+</head>
+<body background="../../imags/China.jpg">
+<div style="height: 50px"></div>
+<div align="center">
+<form method="post" name="Pform">
+    <table border="1" bordercolor="gold" bgcolor="#fff0f5" width="500"
+           style="font-size:12px;align:left;" cellpadding="4">
+        <tr>
+            <td height="60" colspan="2"><br>
+                <span style="color:green;font-size:20px">
+                    <b><center>您现在在科技项目管理页面</center></b>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" height="400">
+                <div style="height: 70px;font-size: 17px;color: darkred">请输入您想要查询/插入的内容：</div>
+                <table align="center" border="1" bgcolor="#fff0f5" bordercolor="gold" width="400">
+                    <tr>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;项号:&nbsp;<input type="text" size="10" name="Pno_t" id="Pno_t">
+                        </td>
+
+                        <td width="150" colspan="1" align="center" height="50">
+                            &nbsp;名称:&nbsp;<input type="text" size="10" name="Pname_t" id="Pname_t">
+                        </td>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;等级:&nbsp;<input type="text" size="10" name="Plevel_t" id="Plevel_t">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" align="center" height="50" colspan="1.5">
+                            &nbsp;类型:&nbsp;<input type="text" size="10" name="Ptype_t" id="Ptype_t">
+                        </td>
+                        <td width="150" align="center" height="50" colspan="1.5">
+                            &nbsp;学科:&nbsp;<input type="text" size="10" name="Pmajor_t" id="Pmajor_t">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;立项:&nbsp;<input type="text" size="10" name="Pinfo_start_t" id="Pinfo_start_t">
+                        </td>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;结题:&nbsp;<input type="text" size="10" name="Pinfo_end_t" id="Pinfo_end_t">
+                        </td>
+                        <td width="150" align="center" colspan="1" height="50">
+                            &nbsp;合作:&nbsp;<input type="text" size="10" name="Pinfo_corporate_t" id="Pinfo_corporate_t">
+                        </td>
+                    </tr>
+                </table>
+                <div style="height: 50px"></div>
+                <div style="height: auto">
+                    <input type="submit" value="查询" name="program_select" onclick="Select()">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="插入" name="Program_insert" onclick="Insert()">
+
+                    <input type="hidden" name="request" id="request">
+                </div>
+            </td>
+        </tr>
+    </table><br>
+</form>
+</div>
+</body>
+</html>
+
